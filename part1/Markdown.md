@@ -1,44 +1,42 @@
-```mermaid
 classDiagram
-       class Utilisateur {
-        +String prenom
-        +String nom
+    class User {
+        +String firstName
+        +String lastName
         +String email
-        +String motDePasse
-        +Boolean estAdmin
-        +inscrire()
-        +mettreAJourProfil()
-        +supprimer()
+        +String password
+        +Boolean isAdmin
+        +register()
+        +updateProfile()
+        +delete()
     }
-    class Logement {
-        +String titre
+    class Place {
+        +String title
         +String description
-        +Float prix
+        +Float price
         +Float latitude
         +Float longitude
-        +creer()
-        +mettreAJour()
-        +supprimer()
-        +lister()
+        +create()
+        +update()
+        +delete()
+        +list()
     }
-    class Avis {
-        +Int note
-        +String commentaire
-        +creer()
-        +mettreAJour()
-        +supprimer()
-        +listerParLogement()
+    class Review {
+        +Int rating
+        +String comment
+        +create()
+        +update()
+        +delete()
+        +listByPlace()
     }
-    class Equipement {
-        +String nom
+    class Amenity {
+        +String name
         +String description
-        +creer()
-        +mettreAJour()
-        +supprimer()
-        +lister()
+        +create()
+        +update()
+        +delete()
+        +list()
     }
-    Utilisateur "1" -- "*" Logement : possède
-    Utilisateur "1" -- "*" Avis : écrit
-    Logement "1" -- "*" Avis : reçoit
-    Logement "*" -- "*" Equipement : a
-
+    User "1" -- "*" Place : owns
+    User "1" -- "*" Review : writes
+    Place "1" -- "*" Review : receives
+    Place "*" -- "*" Amenity : has
