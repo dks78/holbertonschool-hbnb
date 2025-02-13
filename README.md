@@ -1,1 +1,1 @@
-Hbnb projec
+Hbnb project
